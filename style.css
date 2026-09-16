@@ -2,19 +2,27 @@
 
 h1 {
     color: white;
-    align-items: center;
-    text-align: center;
+    margin-left: 100px;
 }
 
 nav {
     color: white;
-    align-items: center;
-    text-align: center;
+    margin-right: 40px;
+}
+
+nav ul a {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
 }
 
 main {
     color: white;
-    align-items: center;
     text-align: center;
 }
 
@@ -25,10 +33,23 @@ body {
     min-height: auto;
 }
 
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 105, 111);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #footer {
     position: absolute;
     width: 100%;
     bottom: 0;
+    left: 0;
     background-color: rgb(0, 105, 111);
     color: white;
     text-align: center;
