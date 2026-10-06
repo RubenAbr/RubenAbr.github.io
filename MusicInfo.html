@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blogs Portfolio Ruben</title>
+        <title>Music Info Portfolio Ruben</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header id="header">
-            <h1>Blogs</h1>
+            <h1>Music Info</h1>
             <nav>
                 <ul>
                     <li><a href="/index.html" class="navbutton"><button id="HomeButton">Home</button></a></li>
@@ -20,8 +20,22 @@
             </nav>
         </header>
         <main>
-            <h2>Blogs:</h2>
-            <div id="bloglijst" class="blog-container"></div>
+            <h2>Muziekinformatie</h2>
+
+            <div class="music-info-container">
+                <form id="zoekFormulier">
+                    <label for="zoekterm">Zoek een nummer:</label>
+                    <input 
+                        type="text" 
+                        id="zoekterm"
+                        placeholder="Voer een nummer in"
+                    >
+
+                    <button type="submit", class="musicsearchbutton">Zoeken</button>
+                </form>
+            </div>
+
+            <div id="resultaten"></div>
         </main>
         <footer id="footer">
             <p>&copy; 2026 Ruben Abrahamse. All rights reserved.</p>

@@ -158,3 +158,119 @@ function renderBlogPosts() {
 if (blogLijst) {
     renderBlogPosts();
 }
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(el => el.style.display = 'none');
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    let isValid = true;
+
+    if (name === '') {
+        document.getElementById('nameError').textContent = 'Naam is vereist';
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '' || !emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Geldig e-mailadres is vereist';
+        document.getElementById('emailError').style.display = 'block';
+        isValid = false;
+    }
+
+    const phonePattern = /^[0-9]{10}$/;
+    if (phone === '' || !phonePattern.test(phone)) {
+        document.getElementById('phoneError').textContent = 'Geldig telefoonnummer is vereist';
+        document.getElementById('phoneError').style.display = 'block';
+        isValid = false;
+    }
+
+    if (message === '') {
+        document.getElementById('messageError').textContent = 'Bericht is vereist';
+        document.getElementById('messageError').style.display = 'block';
+        isValid = false;
+    }
+
+    if (isValid) {
+        alert('Form submitted successfully!');
+    }
+});
+
+const zoekFormulier = document.querySelector("#zoekFormulier");
+const zoekterm = document.querySelector("#zoekterm");
+const resultaten = document.querySelector("#resultaten");
+
+function formatteerDuur(duurInMillis) {
+    const seconden = Math.floor(duurInMillis / 1000);
+    const minuten = Math.floor(seconden / 60);
+    const resterendeSeconden = seconden % 60;
+    return `${minuten}:${resterendeSeconden.toString().padStart(2, '0')}`;
+}
+
+if (zoekFormulier && zoekterm && resultaten) {
+    zoekFormulier.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const zoektermInhoud = zoekterm.value.trim();
+
+        if (zoektermInhoud === "") {
+            resultaten.textContent = "Vul een nummer of artiest in.";
+            return;
+        }
+
+        resultaten.textContent = "Zoeken...";
+
+        const url = `https://itunes.apple.com/search?term=${encodeURIComponent(zoektermInhoud)}&entity=song&limit=10`;
+        fetch(url)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Zoeken is niet gelukt.");
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                const nummers = data.results;
+                resultaten.replaceChildren();
+
+                if (nummers.length === 0) {
+                    resultaten.textContent = "Geen resultaten gevonden.";
+                    return;
+                }
+
+                nummers.forEach(nummer => {
+                    const nummerElement = document.createElement("div");
+                    nummerElement.classList.add("nummer");
+
+                    const cover = document.createElement("img");
+                    cover.src = nummer.artworkUrl100;
+                    cover.alt = `Cover van ${nummer.trackName}`;
+
+                    const titel = document.createElement("h3");
+                    titel.textContent = nummer.trackName;
+
+                    const artiest = document.createElement("p");
+                    artiest.textContent = `Artiest: ${nummer.artistName}`;
+
+                    const album = document.createElement("p");
+                    album.textContent = `Album: ${nummer.collectionName}`;
+
+                    const duur = document.createElement("p");
+                    duur.textContent = `Duur: ${formatteerDuur(nummer.trackTimeMillis)}`;
+
+                    nummerElement.append(cover, titel, artiest, album, duur);
+                    resultaten.appendChild(nummerElement);
+                });
+            })
+            .catch(function(error) {
+                resultaten.textContent = error.message;
+            });
+    });
+}

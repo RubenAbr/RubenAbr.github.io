@@ -15,6 +15,7 @@
                     <li><a href="/About.html" class="navbutton"><button id="AboutButton">Over</button></a></li>
                     <li><a href="/BlogOverzicht.html" class="navbutton"><button id="BlogButton">Blogs</button></a></li>
                     <li><a href="/ProjectOverzicht.html" class="navbutton"><button id="ProjectButton">Projecten</button></a></li>
+                    <li><a href="/MusicInfo.html" class="navbutton"><button id="MusicButton">Muziek</button></a></li>
                 </ul>
             </nav>
         </header>
@@ -22,6 +23,45 @@
             <h2>Wie ben ik?</h2>
             <div class="about-container">
                 <p id="abouttext">Hallo! Mijn naam is Ruben Abrahamse en ik ben een webontwikkelaar met een passie voor het creëren van interactieve en gebruiksvriendelijke websites. Ik heb ervaring met Java, HTML, CSS, JavaScript en verschillende frameworks.</p>
+            <div class="contact-form-container">
+                <h2>Neem contact op</h2>
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" 
+                            name="name" 
+                            placeholder="Uw Naam" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" 
+                            name="email" 
+                            placeholder="Uw Email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefoonnummer</label>
+                        <input type="tel" id="phone" 
+                            name="phone" 
+                            placeholder="Uw Telefoonnummer" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bericht</label>
+                        <textarea id="message" 
+                                name="message" 
+                                placeholder="Uw Bericht" 
+                                rows="5" required></textarea>
+                        <span class="error-message" 
+                            id="messageError"></span>
+                    </div>
+                    <button type="submit" 
+                            class="submit-button">
+                    Verstuur Bericht
+                    </button>
+                </form>
+            </div>
         </main>
         <footer id="footer">
             <p>&copy; 2026 Ruben Abrahamse. All rights reserved.</p>
