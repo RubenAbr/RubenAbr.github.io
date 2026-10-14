@@ -23,6 +23,8 @@
             <h2>Mijn afgelopen/huidige projecten</h2>
             <button id="sorteerPopulariteit" class="sortButton", onclick="sorteerProjectenOpPopulariteit()">Sorteer op populariteit</button>
             <button id="sorteerRecentheid" class="sortButton", onclick="sorteerProjectenOpRecentheid()">Sorteer op recentheid</button>
+            <input id="zoekProjecten" class="searchInput" type="search" placeholder="Zoek een project..." aria-label="Zoek een project" oninput="zoekProjecten()">
+            
             <div id="projectenlijst", class="project-container"></div>
         </main>
         <footer id="footer">

@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1, 
+        "naam": "Portfolio Website", 
+        "beschrijving": "Een persoonlijke website om projecten en vaardigheden te presenteren.", 
+        "populariteit": 8,
+        "afbeelding": "pictures\\project.jpg"
+    },
+    { 
+        "id": 2, 
+        "naam": "Takenlijst-app", 
+        "beschrijving": "Een eenvoudige webapp waarin je taken kunt toevoegen, afvinken en verwijderen.", 
+        "populariteit": 6,
+        "afbeelding": "pictures\\project.jpg"
+    },
+    { 
+        "id": 3, 
+        "naam": "Rekenmachine", 
+        "beschrijving": "Een interactieve rekenmachine die basisberekeningen uitvoert met JavaScript.", 
+        "populariteit": 3,
+        "afbeelding": "pictures\\project.jpg"  
+    },  
+    {
+        "id": 4, 
+        "naam": "Weer Dashboard", 
+        "beschrijving": "Een dashboard dat actuele weersinformatie ophaalt en overzichtelijk toont.", 
+        "populariteit": 9,
+        "afbeelding": "pictures\\project.jpg"
+    },
+    {
+        "id": 5, 
+        "naam": "Quiz over Programmeren", 
+        "beschrijving": "Een korte quiz met programmeervragen en directe feedback op je antwoorden.",
+        "populariteit": 5,
+        "afbeelding": "pictures\\project.jpg"
+    },
+    {
+        "id": 6,
+        "naam": "Code Snippet Bibliotheek", 
+        "beschrijving": "Een verzameling handige codevoorbeelden die je kunt bekijken en hergebruiken.",
+        "populariteit": 7,
+        "afbeelding": "pictures\\project.jpg"
+    }
+]
